@@ -16,19 +16,19 @@ Option Explicit On
 '''<summary>
 '''Represents a strongly typed in-memory cache of data.
 '''</summary>
-<Global.System.Serializable(),  _
- Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
- Global.System.ComponentModel.ToolboxItem(true),  _
- Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- Global.System.Xml.Serialization.XmlRootAttribute("dbDataliaPoliceCamerasDataSet"),  _
- Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
+<Global.System.Serializable(), _
+ Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+ Global.System.ComponentModel.ToolboxItem(True), _
+ Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"), _
+ Global.System.Xml.Serialization.XmlRootAttribute("dbDataliaPoliceCamerasDataSet"), _
+ Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")> _
 Partial Public Class dbDataliaPoliceCamerasDataSet
     Inherits Global.System.Data.DataSet
-    
+
     Private tabletblCameraRecords As tblCameraRecordsDataTable
-    
+
     Private tableRegPlates As RegPlatesDataTable
-    
+
     Private tabletblCameraCodes As tblCameraCodesDataTable
 
     Private tabletblDistricts As tblDistrictsDataTable
@@ -2745,8 +2745,8 @@ Namespace dbDataliaPoliceCamerasDataSetTableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblCameraRecords] ([Id], [District], [RegYear], [RegDigits], [" & _
                 "CameraCode], [CaptureDateTime]) VALUES (@Id, @District, @RegYear, @RegDigits, @C" & _
-                "ameraCode, @CaptureDateTime);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT Id, District, RegYear, RegDigits, CameraCo" & _
-                "de, CaptureDateTime FROM tblCameraRecords WHERE (Id = @Id)"
+                "ameraCode, @CaptureDateTime);" & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT Id, District, RegYear, RegDigits, CameraCod" & _
+                "e, CaptureDateTime FROM tblCameraRecords WHERE (Id = @Id)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@District", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "District", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
@@ -2761,8 +2761,8 @@ Namespace dbDataliaPoliceCamerasDataSetTableAdapters
                 "ime] = @CaptureDateTime WHERE (([Id] = @Original_Id) AND ([District] = @Original" & _
                 "_District) AND ([RegYear] = @Original_RegYear) AND ([RegDigits] = @Original_RegD" & _
                 "igits) AND ([CameraCode] = @Original_CameraCode) AND ([CaptureDateTime] = @Origi" & _
-                "nal_CaptureDateTime));" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT Id, District, RegYear, RegDigits, CameraCode, Cap" & _
-                "tureDateTime FROM tblCameraRecords WHERE (Id = @Id)"
+                "nal_CaptureDateTime));" & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT Id, District, RegYear, RegDigits, CameraCode, Capt" & _
+                "ureDateTime FROM tblCameraRecords WHERE (Id = @Id)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@District", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "District", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
@@ -2796,9 +2796,9 @@ Namespace dbDataliaPoliceCamerasDataSetTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        Id, District, RegYear, RegDigits, CameraCode, CaptureDateTime" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM" & _
-                "            tblCameraRecords" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (District = @District) AND (RegYear =" & _
-                " @RegYear) AND (RegDigits = @RegDigits)"
+            Me._commandCollection(1).CommandText = "SELECT        Id, District, RegYear, RegDigits, CameraCode, CaptureDateTime" & Global.Microsoft.VisualBasic.ChrW(10) & "FROM " & _
+                "           tblCameraRecords" & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (District = @District) AND (RegYear = @" & _
+                "RegYear) AND (RegDigits = @RegDigits)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@District", Global.System.Data.SqlDbType.VarChar, 3, Global.System.Data.ParameterDirection.Input, 0, 0, "District", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RegYear", Global.System.Data.SqlDbType.SmallInt, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "RegYear", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
@@ -3148,17 +3148,34 @@ Namespace dbDataliaPoliceCamerasDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT District, RegYear, RegDigits, RegPlate FROM dbo.RegPlates"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        District, RegYear, RegDigits" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RegPlates" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE     " & _
-                "   (RegPlate = @RegPlate)"
+            Me._commandCollection(1).CommandText = "SELECT        District, RegYear, RegDigits" & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RegPlates" & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE       " & _
+                " (RegPlate = @RegPlate)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RegPlate", Global.System.Data.SqlDbType.VarChar, 15, Global.System.Data.ParameterDirection.Input, 0, 0, "RegPlate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT        RegDigits" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RegPlates" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (RegPlate = @Reg" & _
+                ")"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Reg", Global.System.Data.SqlDbType.VarChar, 15, Global.System.Data.ParameterDirection.Input, 0, 0, "RegPlate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "SELECT        District" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RegPlates" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (RegPlate = @Reg)" & _
+                ""
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Reg", Global.System.Data.SqlDbType.VarChar, 15, Global.System.Data.ParameterDirection.Input, 0, 0, "RegPlate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "SELECT        RegYear" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RegPlates" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (RegPlate = @Reg)"
+            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Reg", Global.System.Data.SqlDbType.VarChar, 15, Global.System.Data.ParameterDirection.Input, 0, 0, "RegPlate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -3217,6 +3234,99 @@ Namespace dbDataliaPoliceCamerasDataSetTableAdapters
             Dim dataTable As dbDataliaPoliceCamerasDataSet.RegPlatesDataTable = New dbDataliaPoliceCamerasDataSet.RegPlatesDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function GetDigits(ByVal Reg As String) As Global.System.Nullable(Of Short)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
+            If (Reg Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Reg")
+            Else
+                command.Parameters(0).Value = CType(Reg, String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open()
+            End If
+            Dim returnValue As Object
+            Try
+                returnValue = command.ExecuteScalar
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close()
+                End If
+            End Try
+            If ((returnValue Is Nothing) _
+                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
+                Return New Global.System.Nullable(Of Short)()
+            Else
+                Return New Global.System.Nullable(Of Short)(CType(returnValue, Short))
+            End If
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function GetDistrict(ByVal Reg As String) As String
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
+            If (Reg Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Reg")
+            Else
+                command.Parameters(0).Value = CType(Reg, String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open()
+            End If
+            Dim returnValue As Object
+            Try
+                returnValue = command.ExecuteScalar
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close()
+                End If
+            End Try
+            If ((returnValue Is Nothing) _
+                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
+                Return Nothing
+            Else
+                Return CType(returnValue, String)
+            End If
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function GetYear(ByVal Reg As String) As Global.System.Nullable(Of Short)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
+            If (Reg Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Reg")
+            Else
+                command.Parameters(0).Value = CType(Reg, String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open()
+            End If
+            Dim returnValue As Object
+            Try
+                returnValue = command.ExecuteScalar
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close()
+                End If
+            End Try
+            If ((returnValue Is Nothing) _
+                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
+                Return New Global.System.Nullable(Of Short)()
+            Else
+                Return New Global.System.Nullable(Of Short)(CType(returnValue, Short))
+            End If
         End Function
     End Class
 
@@ -3364,7 +3474,7 @@ Namespace dbDataliaPoliceCamerasDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT DISTINCT CameraCode" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            tblCameraRecords"
+            Me._commandCollection(0).CommandText = "SELECT DISTINCT CameraCode" & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            tblCameraRecords"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
 
@@ -3537,7 +3647,7 @@ Namespace dbDataliaPoliceCamerasDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT DISTINCT District" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            tblCameraRecords"
+            Me._commandCollection(0).CommandText = "SELECT DISTINCT District" & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            tblCameraRecords"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
 
@@ -3710,7 +3820,7 @@ Namespace dbDataliaPoliceCamerasDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT DISTINCT RegYear" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            tblCameraRecords"
+            Me._commandCollection(0).CommandText = "SELECT DISTINCT RegYear" & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            tblCameraRecords"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
 
@@ -3883,8 +3993,8 @@ Namespace dbDataliaPoliceCamerasDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT DISTINCT CAST(CaptureDateTime AS DATE) AS Expr1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            tblCamera" & _
-                "Records"
+            Me._commandCollection(0).CommandText = "SELECT DISTINCT CAST(CaptureDateTime AS DATE) AS Expr1" & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            tblCameraR" & _
+                "ecords"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
 
@@ -3944,33 +4054,33 @@ Namespace dbDataliaPoliceCamerasDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.IDbCommand(4) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             CType(Me._commandCollection(0), Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.projPoliceCameras.My.MySettings.Default.dbDataliaPoliceCamerasConnectionString)
-            CType(Me._commandCollection(0), Global.System.Data.SqlClient.SqlCommand).CommandText = "SELECT        District" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RegPlates" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (RegPlate = @RegP" & _
-                "late)"
+            CType(Me._commandCollection(0), Global.System.Data.SqlClient.SqlCommand).CommandText = "SELECT        District" & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RegPlates" & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (RegPlate = @RegPla" & _
+                "te)"
             CType(Me._commandCollection(0), Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.Text
             CType(Me._commandCollection(0), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RegPlate", Global.System.Data.SqlDbType.VarChar, 15, Global.System.Data.ParameterDirection.Input, 0, 0, "RegPlate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             CType(Me._commandCollection(1), Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.projPoliceCameras.My.MySettings.Default.dbDataliaPoliceCamerasConnectionString)
-            CType(Me._commandCollection(1), Global.System.Data.SqlClient.SqlCommand).CommandText = "SELECT        RegYear" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RegPlates" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (RegPlate = @RegPl" & _
-                "ate)"
+            CType(Me._commandCollection(1), Global.System.Data.SqlClient.SqlCommand).CommandText = "SELECT        RegYear" & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RegPlates" & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (RegPlate = @RegPlat" & _
+                "e)"
             CType(Me._commandCollection(1), Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.Text
             CType(Me._commandCollection(1), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RegPlate", Global.System.Data.SqlDbType.VarChar, 15, Global.System.Data.ParameterDirection.Input, 0, 0, "RegPlate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             CType(Me._commandCollection(2), Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.projPoliceCameras.My.MySettings.Default.dbDataliaPoliceCamerasConnectionString)
-            CType(Me._commandCollection(2), Global.System.Data.SqlClient.SqlCommand).CommandText = "SELECT        RegDigits" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RegPlates" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (RegPlate = @Reg" & _
-                "Plate)"
+            CType(Me._commandCollection(2), Global.System.Data.SqlClient.SqlCommand).CommandText = "SELECT        RegDigits" & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RegPlates" & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (RegPlate = @RegPl" & _
+                "ate)"
             CType(Me._commandCollection(2), Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.Text
             CType(Me._commandCollection(2), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RegPlate", Global.System.Data.SqlDbType.VarChar, 15, Global.System.Data.ParameterDirection.Input, 0, 0, "RegPlate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             CType(Me._commandCollection(3), Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.projPoliceCameras.My.MySettings.Default.dbDataliaPoliceCamerasConnectionString)
-            CType(Me._commandCollection(3), Global.System.Data.SqlClient.SqlCommand).CommandText = "SELECT        COUNT(Id) AS Expr1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            tblCameraRecords" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        " & _
-                "(CameraCode = @CameraCode) AND (RegYear = @RegYear)"
+            CType(Me._commandCollection(3), Global.System.Data.SqlClient.SqlCommand).CommandText = "SELECT        COUNT(Id) AS Expr1" & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            tblCameraRecords" & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (C" & _
+                "ameraCode = @CameraCode) AND (RegYear = @RegYear)"
             CType(Me._commandCollection(3), Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.Text
             CType(Me._commandCollection(3), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CameraCode", Global.System.Data.SqlDbType.SmallInt, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "CameraCode", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             CType(Me._commandCollection(3), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RegYear", Global.System.Data.SqlDbType.SmallInt, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "RegYear", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
             CType(Me._commandCollection(4), Global.System.Data.SqlClient.SqlCommand).Connection = New Global.System.Data.SqlClient.SqlConnection(Global.projPoliceCameras.My.MySettings.Default.dbDataliaPoliceCamerasConnectionString)
-            CType(Me._commandCollection(4), Global.System.Data.SqlClient.SqlCommand).CommandText = "SELECT        COUNT(Id) AS Expr1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            tblCameraRecords" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        " & _
-                "(District = @District) AND (CAST(CaptureDateTime AS DATE) = @CaptureDateTime)"
+            CType(Me._commandCollection(4), Global.System.Data.SqlClient.SqlCommand).CommandText = "SELECT        COUNT(Id) AS Expr1" & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            tblCameraRecords" & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (D" & _
+                "istrict = @District) AND (CAST(CaptureDateTime AS DATE) = @CaptureDateTime)"
             CType(Me._commandCollection(4), Global.System.Data.SqlClient.SqlCommand).CommandType = Global.System.Data.CommandType.Text
             CType(Me._commandCollection(4), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@District", Global.System.Data.SqlDbType.VarChar, 3, Global.System.Data.ParameterDirection.Input, 0, 0, "District", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             CType(Me._commandCollection(4), Global.System.Data.SqlClient.SqlCommand).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CaptureDateTime", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
