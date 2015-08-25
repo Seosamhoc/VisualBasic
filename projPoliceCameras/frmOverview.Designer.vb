@@ -28,6 +28,8 @@ Partial Class frmOverview
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.TblCameraRecordsBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.TblCameraRecordsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DbDataliaPoliceCamerasDataSet = New projPoliceCameras.dbDataliaPoliceCamerasDataSet()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -46,15 +48,14 @@ Partial Class frmOverview
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TblCameraRecordsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbDataliaPoliceCamerasDataSet = New projPoliceCameras.dbDataliaPoliceCamerasDataSet()
         Me.TblCameraRecordsTableAdapter = New projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.tblCameraRecordsTableAdapter()
         Me.TableAdapterManager = New projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.TableAdapterManager()
+        Me.btnUpdate = New System.Windows.Forms.Button()
         CType(Me.TblCameraRecordsBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TblCameraRecordsBindingNavigator.SuspendLayout()
-        CType(Me.TblCameraRecordsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblCameraRecordsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbDataliaPoliceCamerasDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TblCameraRecordsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnExit
@@ -101,6 +102,16 @@ Partial Class frmOverview
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'TblCameraRecordsBindingSource
+        '
+        Me.TblCameraRecordsBindingSource.DataMember = "tblCameraRecords"
+        Me.TblCameraRecordsBindingSource.DataSource = Me.DbDataliaPoliceCamerasDataSet
+        '
+        'DbDataliaPoliceCamerasDataSet
+        '
+        Me.DbDataliaPoliceCamerasDataSet.DataSetName = "dbDataliaPoliceCamerasDataSet"
+        Me.DbDataliaPoliceCamerasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -233,16 +244,6 @@ Partial Class frmOverview
         Me.DataGridViewTextBoxColumn6.HeaderText = "CaptureDateTime"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         '
-        'TblCameraRecordsBindingSource
-        '
-        Me.TblCameraRecordsBindingSource.DataMember = "tblCameraRecords"
-        Me.TblCameraRecordsBindingSource.DataSource = Me.DbDataliaPoliceCamerasDataSet
-        '
-        'DbDataliaPoliceCamerasDataSet
-        '
-        Me.DbDataliaPoliceCamerasDataSet.DataSetName = "dbDataliaPoliceCamerasDataSet"
-        Me.DbDataliaPoliceCamerasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'TblCameraRecordsTableAdapter
         '
         Me.TblCameraRecordsTableAdapter.ClearBeforeFill = True
@@ -253,12 +254,22 @@ Partial Class frmOverview
         Me.TableAdapterManager.tblCameraRecordsTableAdapter = Me.TblCameraRecordsTableAdapter
         Me.TableAdapterManager.UpdateOrder = projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'btnUpdate
+        '
+        Me.btnUpdate.Location = New System.Drawing.Point(320, 226)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(75, 23)
+        Me.btnUpdate.TabIndex = 4
+        Me.btnUpdate.Text = "Update"
+        Me.btnUpdate.UseVisualStyleBackColor = True
+        '
         'frmOverview
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(742, 304)
         Me.ControlBox = False
+        Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.TblCameraRecordsDataGridView)
         Me.Controls.Add(Me.TblCameraRecordsBindingNavigator)
         Me.Controls.Add(Me.btnSearch)
@@ -268,9 +279,9 @@ Partial Class frmOverview
         CType(Me.TblCameraRecordsBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TblCameraRecordsBindingNavigator.ResumeLayout(False)
         Me.TblCameraRecordsBindingNavigator.PerformLayout()
-        CType(Me.TblCameraRecordsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblCameraRecordsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DbDataliaPoliceCamerasDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TblCameraRecordsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -301,5 +312,6 @@ Partial Class frmOverview
     Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btnUpdate As System.Windows.Forms.Button
 
 End Class
