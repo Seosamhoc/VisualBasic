@@ -24,22 +24,23 @@ Partial Class frmUpdate
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.grbAddCapture = New System.Windows.Forms.GroupBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.btnCapture = New System.Windows.Forms.Button()
-        Me.lblReg = New System.Windows.Forms.Label()
-        Me.lblCamCode = New System.Windows.Forms.Label()
         Me.lblCaptureDate = New System.Windows.Forms.Label()
+        Me.lblCamCode = New System.Windows.Forms.Label()
+        Me.lblReg = New System.Windows.Forms.Label()
+        Me.btnCapture = New System.Windows.Forms.Button()
+        Me.dtpCaptureDate = New System.Windows.Forms.DateTimePicker()
+        Me.cboCamCode = New System.Windows.Forms.ComboBox()
+        Me.TblCameraCodesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DbDataliaPoliceCamerasDataSet = New projPoliceCameras.dbDataliaPoliceCamerasDataSet()
+        Me.cboReg = New System.Windows.Forms.ComboBox()
         Me.RegPlatesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.RegPlatesTableAdapter = New projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.RegPlatesTableAdapter()
-        Me.TblCameraCodesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TblCameraCodesTableAdapter = New projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.tblCameraCodesTableAdapter()
+        Me.RegPlatesTableAdapter1 = New projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.RegPlatesTableAdapter()
         Me.grbAddCapture.SuspendLayout()
+        CType(Me.TblCameraCodesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbDataliaPoliceCamerasDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RegPlatesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TblCameraCodesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grbAddCapture
@@ -48,70 +49,14 @@ Partial Class frmUpdate
         Me.grbAddCapture.Controls.Add(Me.lblCamCode)
         Me.grbAddCapture.Controls.Add(Me.lblReg)
         Me.grbAddCapture.Controls.Add(Me.btnCapture)
-        Me.grbAddCapture.Controls.Add(Me.DateTimePicker1)
-        Me.grbAddCapture.Controls.Add(Me.ComboBox2)
-        Me.grbAddCapture.Controls.Add(Me.ComboBox1)
+        Me.grbAddCapture.Controls.Add(Me.dtpCaptureDate)
+        Me.grbAddCapture.Controls.Add(Me.cboCamCode)
+        Me.grbAddCapture.Controls.Add(Me.cboReg)
         Me.grbAddCapture.Location = New System.Drawing.Point(30, 148)
         Me.grbAddCapture.Name = "grbAddCapture"
         Me.grbAddCapture.Size = New System.Drawing.Size(492, 104)
         Me.grbAddCapture.TabIndex = 0
         Me.grbAddCapture.TabStop = False
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DataSource = Me.RegPlatesBindingSource
-        Me.ComboBox1.DisplayMember = "RegPlate"
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(31, 43)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 0
-        Me.ComboBox1.ValueMember = "RegPlate"
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.DataSource = Me.TblCameraCodesBindingSource
-        Me.ComboBox2.DisplayMember = "CameraCode"
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(214, 44)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(46, 21)
-        Me.ComboBox2.TabIndex = 1
-        Me.ComboBox2.ValueMember = "CameraCode"
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(318, 44)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(141, 20)
-        Me.DateTimePicker1.TabIndex = 2
-        '
-        'btnCapture
-        '
-        Me.btnCapture.Location = New System.Drawing.Point(384, 73)
-        Me.btnCapture.Name = "btnCapture"
-        Me.btnCapture.Size = New System.Drawing.Size(75, 23)
-        Me.btnCapture.TabIndex = 3
-        Me.btnCapture.Text = "Add Capture"
-        Me.btnCapture.UseVisualStyleBackColor = True
-        '
-        'lblReg
-        '
-        Me.lblReg.AutoSize = True
-        Me.lblReg.Location = New System.Drawing.Point(28, 28)
-        Me.lblReg.Name = "lblReg"
-        Me.lblReg.Size = New System.Drawing.Size(90, 13)
-        Me.lblReg.TabIndex = 4
-        Me.lblReg.Text = "Registration Plate"
-        '
-        'lblCamCode
-        '
-        Me.lblCamCode.AutoSize = True
-        Me.lblCamCode.Location = New System.Drawing.Point(211, 28)
-        Me.lblCamCode.Name = "lblCamCode"
-        Me.lblCamCode.Size = New System.Drawing.Size(49, 13)
-        Me.lblCamCode.TabIndex = 5
-        Me.lblCamCode.Text = "Camera: "
         '
         'lblCaptureDate
         '
@@ -122,10 +67,71 @@ Partial Class frmUpdate
         Me.lblCaptureDate.TabIndex = 6
         Me.lblCaptureDate.Text = "Capture Date"
         '
+        'lblCamCode
+        '
+        Me.lblCamCode.AutoSize = True
+        Me.lblCamCode.Location = New System.Drawing.Point(211, 28)
+        Me.lblCamCode.Name = "lblCamCode"
+        Me.lblCamCode.Size = New System.Drawing.Size(49, 13)
+        Me.lblCamCode.TabIndex = 5
+        Me.lblCamCode.Text = "Camera: "
+        '
+        'lblReg
+        '
+        Me.lblReg.AutoSize = True
+        Me.lblReg.Location = New System.Drawing.Point(28, 28)
+        Me.lblReg.Name = "lblReg"
+        Me.lblReg.Size = New System.Drawing.Size(90, 13)
+        Me.lblReg.TabIndex = 4
+        Me.lblReg.Text = "Registration Plate"
+        '
+        'btnCapture
+        '
+        Me.btnCapture.Location = New System.Drawing.Point(384, 73)
+        Me.btnCapture.Name = "btnCapture"
+        Me.btnCapture.Size = New System.Drawing.Size(75, 23)
+        Me.btnCapture.TabIndex = 3
+        Me.btnCapture.Text = "Add Capture"
+        Me.btnCapture.UseVisualStyleBackColor = True
+        '
+        'dtpCaptureDate
+        '
+        Me.dtpCaptureDate.Location = New System.Drawing.Point(318, 44)
+        Me.dtpCaptureDate.Name = "dtpCaptureDate"
+        Me.dtpCaptureDate.Size = New System.Drawing.Size(141, 20)
+        Me.dtpCaptureDate.TabIndex = 2
+        '
+        'cboCamCode
+        '
+        Me.cboCamCode.DataSource = Me.TblCameraCodesBindingSource
+        Me.cboCamCode.DisplayMember = "CameraCode"
+        Me.cboCamCode.FormattingEnabled = True
+        Me.cboCamCode.Location = New System.Drawing.Point(214, 44)
+        Me.cboCamCode.Name = "cboCamCode"
+        Me.cboCamCode.Size = New System.Drawing.Size(46, 21)
+        Me.cboCamCode.TabIndex = 1
+        Me.cboCamCode.ValueMember = "CameraCode"
+        '
+        'TblCameraCodesBindingSource
+        '
+        Me.TblCameraCodesBindingSource.DataMember = "tblCameraCodes"
+        Me.TblCameraCodesBindingSource.DataSource = Me.DbDataliaPoliceCamerasDataSet
+        '
         'DbDataliaPoliceCamerasDataSet
         '
         Me.DbDataliaPoliceCamerasDataSet.DataSetName = "dbDataliaPoliceCamerasDataSet"
         Me.DbDataliaPoliceCamerasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'cboReg
+        '
+        Me.cboReg.DataSource = Me.RegPlatesBindingSource
+        Me.cboReg.DisplayMember = "RegPlate"
+        Me.cboReg.FormattingEnabled = True
+        Me.cboReg.Location = New System.Drawing.Point(31, 43)
+        Me.cboReg.Name = "cboReg"
+        Me.cboReg.Size = New System.Drawing.Size(121, 21)
+        Me.cboReg.TabIndex = 0
+        Me.cboReg.ValueMember = "RegPlate"
         '
         'RegPlatesBindingSource
         '
@@ -136,14 +142,13 @@ Partial Class frmUpdate
         '
         Me.RegPlatesTableAdapter.ClearBeforeFill = True
         '
-        'TblCameraCodesBindingSource
-        '
-        Me.TblCameraCodesBindingSource.DataMember = "tblCameraCodes"
-        Me.TblCameraCodesBindingSource.DataSource = Me.DbDataliaPoliceCamerasDataSet
-        '
         'TblCameraCodesTableAdapter
         '
         Me.TblCameraCodesTableAdapter.ClearBeforeFill = True
+        '
+        'RegPlatesTableAdapter1
+        '
+        Me.RegPlatesTableAdapter1.ClearBeforeFill = True
         '
         'frmUpdate
         '
@@ -155,9 +160,9 @@ Partial Class frmUpdate
         Me.Text = "frmUpdate"
         Me.grbAddCapture.ResumeLayout(False)
         Me.grbAddCapture.PerformLayout()
+        CType(Me.TblCameraCodesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DbDataliaPoliceCamerasDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RegPlatesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TblCameraCodesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -166,12 +171,13 @@ Partial Class frmUpdate
     Friend WithEvents lblCamCode As System.Windows.Forms.Label
     Friend WithEvents lblReg As System.Windows.Forms.Label
     Friend WithEvents btnCapture As System.Windows.Forms.Button
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents dtpCaptureDate As System.Windows.Forms.DateTimePicker
+    Friend WithEvents cboCamCode As System.Windows.Forms.ComboBox
+    Friend WithEvents cboReg As System.Windows.Forms.ComboBox
     Friend WithEvents DbDataliaPoliceCamerasDataSet As projPoliceCameras.dbDataliaPoliceCamerasDataSet
     Friend WithEvents RegPlatesBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents RegPlatesTableAdapter As projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.RegPlatesTableAdapter
     Friend WithEvents TblCameraCodesBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TblCameraCodesTableAdapter As projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.tblCameraCodesTableAdapter
+    Friend WithEvents RegPlatesTableAdapter1 As projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.RegPlatesTableAdapter
 End Class
