@@ -590,9 +590,9 @@ Partial Public Class dbDataliaPoliceCamerasDataSet
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Function AddtblCameraRecordsRow(ByVal Id As Integer, ByVal District As String, ByVal RegYear As Short, ByVal RegDigits As Short, ByVal CameraCode As Short, ByVal CaptureDateTime As Date) As tblCameraRecordsRow
+        Public Overloads Function AddtblCameraRecordsRow(ByVal District As String, ByVal RegYear As Short, ByVal RegDigits As Short, ByVal CameraCode As Short, ByVal CaptureDateTime As Date) As tblCameraRecordsRow
             Dim rowtblCameraRecordsRow As tblCameraRecordsRow = CType(Me.NewRow, tblCameraRecordsRow)
-            Dim columnValuesArray() As Object = New Object() {Id, District, RegYear, RegDigits, CameraCode, CaptureDateTime}
+            Dim columnValuesArray() As Object = New Object() {Nothing, District, RegYear, RegDigits, CameraCode, CaptureDateTime}
             rowtblCameraRecordsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowtblCameraRecordsRow)
             Return rowtblCameraRecordsRow
@@ -645,6 +645,9 @@ Partial Public Class dbDataliaPoliceCamerasDataSet
             Me.columnCaptureDateTime = New Global.System.Data.DataColumn("CaptureDateTime", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCaptureDateTime)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId}, True))
+            Me.columnId.AutoIncrement = True
+            Me.columnId.AutoIncrementSeed = -1
+            Me.columnId.AutoIncrementStep = -1
             Me.columnId.AllowDBNull = False
             Me.columnId.Unique = True
             Me.columnDistrict.AllowDBNull = False
@@ -2788,7 +2791,7 @@ Namespace dbDataliaPoliceCamerasDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT Id, District, RegYear, RegDigits, CameraCode, CaptureDateTime FROM dbo.tbl" & _
@@ -2803,6 +2806,17 @@ Namespace dbDataliaPoliceCamerasDataSetTableAdapters
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@District", Global.System.Data.SqlDbType.VarChar, 3, Global.System.Data.ParameterDirection.Input, 0, 0, "District", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RegYear", Global.System.Data.SqlDbType.SmallInt, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "RegYear", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RegDigits", Global.System.Data.SqlDbType.SmallInt, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "RegDigits", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "INSERT INTO [dbo].[tblCameraRecords] ( [District], [RegYear], [RegDigits], [Camer" & _
+                "aCode], [CaptureDateTime]) VALUES (@District, @RegYear, @RegDigits, @CameraCode," & _
+                " @CaptureDateTime)"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@District", Global.System.Data.SqlDbType.VarChar, 3, Global.System.Data.ParameterDirection.Input, 0, 0, "District", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RegYear", Global.System.Data.SqlDbType.SmallInt, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "RegYear", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RegDigits", Global.System.Data.SqlDbType.SmallInt, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "RegDigits", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CameraCode", Global.System.Data.SqlDbType.SmallInt, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "CameraCode", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CaptureDateTime", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "CaptureDateTime", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -3001,6 +3015,37 @@ Namespace dbDataliaPoliceCamerasDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
         Public Overridable Overloads Function Update(ByVal District As String, ByVal RegYear As Short, ByVal RegDigits As Short, ByVal CameraCode As Short, ByVal CaptureDateTime As Date, ByVal Original_Id As Integer, ByVal Original_District As String, ByVal Original_RegYear As Short, ByVal Original_RegDigits As Short, ByVal Original_CameraCode As Short, ByVal Original_CaptureDateTime As Date) As Integer
             Return Me.Update(Original_Id, District, RegYear, RegDigits, CameraCode, CaptureDateTime, Original_Id, Original_District, Original_RegYear, Original_RegDigits, Original_CameraCode, Original_CaptureDateTime)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, False)> _
+        Public Overridable Overloads Function InsertQuery(ByVal District As String, ByVal RegYear As Short, ByVal RegDigits As Short, ByVal CameraCode As Short, ByVal CaptureDateTime As Date) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
+            If (District Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("District")
+            Else
+                command.Parameters(0).Value = CType(District, String)
+            End If
+            command.Parameters(1).Value = CType(RegYear, Short)
+            command.Parameters(2).Value = CType(RegDigits, Short)
+            command.Parameters(3).Value = CType(CameraCode, Short)
+            command.Parameters(4).Value = CType(CaptureDateTime, Date)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open()
+            End If
+            Dim returnValue As Integer
+            Try
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close()
+                End If
+            End Try
+            Return returnValue
         End Function
     End Class
 

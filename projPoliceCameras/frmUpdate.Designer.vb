@@ -37,6 +37,8 @@ Partial Class frmUpdate
         Me.RegPlatesTableAdapter = New projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.RegPlatesTableAdapter()
         Me.TblCameraCodesTableAdapter = New projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.tblCameraCodesTableAdapter()
         Me.RegPlatesTableAdapter1 = New projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.RegPlatesTableAdapter()
+        Me.TblCameraRecordsTableAdapter1 = New projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.tblCameraRecordsTableAdapter()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.grbAddCapture.SuspendLayout()
         CType(Me.TblCameraCodesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbDataliaPoliceCamerasDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,9 +54,9 @@ Partial Class frmUpdate
         Me.grbAddCapture.Controls.Add(Me.dtpCaptureDate)
         Me.grbAddCapture.Controls.Add(Me.cboCamCode)
         Me.grbAddCapture.Controls.Add(Me.cboReg)
-        Me.grbAddCapture.Location = New System.Drawing.Point(30, 148)
+        Me.grbAddCapture.Location = New System.Drawing.Point(30, 147)
         Me.grbAddCapture.Name = "grbAddCapture"
-        Me.grbAddCapture.Size = New System.Drawing.Size(492, 104)
+        Me.grbAddCapture.Size = New System.Drawing.Size(492, 105)
         Me.grbAddCapture.TabIndex = 0
         Me.grbAddCapture.TabStop = False
         '
@@ -96,6 +98,9 @@ Partial Class frmUpdate
         '
         'dtpCaptureDate
         '
+        Me.dtpCaptureDate.Checked = False
+        Me.dtpCaptureDate.CustomFormat = "yyyy.MM.dd HH:mm"
+        Me.dtpCaptureDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpCaptureDate.Location = New System.Drawing.Point(318, 44)
         Me.dtpCaptureDate.Name = "dtpCaptureDate"
         Me.dtpCaptureDate.Size = New System.Drawing.Size(141, 20)
@@ -150,14 +155,29 @@ Partial Class frmUpdate
         '
         Me.RegPlatesTableAdapter1.ClearBeforeFill = True
         '
+        'TblCameraRecordsTableAdapter1
+        '
+        Me.TblCameraRecordsTableAdapter1.ClearBeforeFill = True
+        '
+        'btnClose
+        '
+        Me.btnClose.Location = New System.Drawing.Point(487, 258)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(75, 23)
+        Me.btnClose.TabIndex = 1
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'frmUpdate
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(574, 291)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.grbAddCapture)
         Me.Name = "frmUpdate"
-        Me.Text = "frmUpdate"
+        Me.Text = " "
         Me.grbAddCapture.ResumeLayout(False)
         Me.grbAddCapture.PerformLayout()
         CType(Me.TblCameraCodesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -180,4 +200,6 @@ Partial Class frmUpdate
     Friend WithEvents TblCameraCodesBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TblCameraCodesTableAdapter As projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.tblCameraCodesTableAdapter
     Friend WithEvents RegPlatesTableAdapter1 As projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.RegPlatesTableAdapter
+    Friend WithEvents TblCameraRecordsTableAdapter1 As projPoliceCameras.dbDataliaPoliceCamerasDataSetTableAdapters.tblCameraRecordsTableAdapter
+    Friend WithEvents btnClose As System.Windows.Forms.Button
 End Class

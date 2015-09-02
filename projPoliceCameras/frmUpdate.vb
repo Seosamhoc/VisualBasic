@@ -4,7 +4,7 @@
     Dim regYear As Short
     Dim digits As Short
     Dim camCode As Short
-    Dim camDate As Date
+    Dim camDate As DateTime
 
     Private Sub frmUpdate_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DbDataliaPoliceCamerasDataSet.tblCameraCodes' table. You can move, or remove it, as needed.
@@ -21,7 +21,13 @@
         digits = Me.RegPlatesTableAdapter1.GetDigits(regPlate)
         camCode = Me.cboCamCode.SelectedValue
         camDate = Me.dtpCaptureDate.Text
-        MessageBox.Show("Reg: " & regPlate & " Dist: " & district & "Year: " & regYear & "Digits: " & digits & "Camera: " & camCode & "Date: " & camDate)
-        'Me.TblCameraRecordsTableAdapter1.InsertQuery(district, regYear, digits, camCode, camDate)
+
+        frmOverview.TblCameraRecordsTableAdapter.InsertQuery(district, regYear, digits, camCode, camDate)
+        MessageBox.Show("Record succesfully inserted:" & vbNewLine & "Reg: " & regPlate & " Camera: " & camCode & " Date: " & camDate)
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        frmOverview.TblCameraRecordsTableAdapter.Fill(frmOverview.DbDataliaPoliceCamerasDataSet.tblCameraRecords)
+        Me.Hide()
     End Sub
 End Class
