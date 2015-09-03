@@ -7,7 +7,10 @@ Public Class frmMain
     Dim iIndex As Integer = 0
     Dim iRecCount As Integer
     Dim insertQuery As String
+    Dim updateQuery As String
     Dim lastID As Integer
+    Dim inAddMode As Boolean
+
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         connetionString = "Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\blue16\Documents\vsprojects\VisualBasic\traineeApp\TraineeDB.mdf;Integrated Security=True"
         DisableInput()
@@ -36,7 +39,7 @@ Public Class frmMain
                 End If
             Next
             For Each Ctrl As Control In Me.Controls
-                If TypeOf Ctrl Is TextBox Then
+                If TypeOf Ctrl Is TextBox Or Ctrl Is cmdSave Then
                     Ctrl.Enabled = False
                 Else
                     Ctrl.Enabled = True
@@ -82,7 +85,7 @@ Public Class frmMain
                 End If
             Next
             For Each Ctrl As Control In Me.Controls
-                If TypeOf Ctrl Is TextBox Then
+                If TypeOf Ctrl Is TextBox Or Ctrl Is cmdSave Then
                     Ctrl.Enabled = True
                 End If
             Next
@@ -100,6 +103,7 @@ Public Class frmMain
             optF.Visible = True
             optM.Visible = True
 
+            txtID.Enabled = False
         Catch ex As Exception
             MsgBox("Unable to set up display! ")
         End Try
@@ -180,6 +184,7 @@ Public Class frmMain
         cmdPrevious.Enabled = False
         cmdNext.Enabled = False
         cmdLast.Enabled = False
+        cmdCancel.Enabled = True
         txtID.Text = lastID + 1
         txtFName.Clear()
         txtLName.Clear()
@@ -190,28 +195,75 @@ Public Class frmMain
         txtDateStarted.Clear()
         txtDept.Clear()
         txtNotes.Clear()
-        iIndex = iRecCount
+        inAddMode = True
     End Sub
 
     Private Sub cmdEdit_Click(sender As Object, e As EventArgs) Handles cmdEdit.Click
+        cmdFirst.Enabled = False
+        cmdPrevious.Enabled = False
+        cmdNext.Enabled = False
+        cmdLast.Enabled = False
+        cmdCancel.Enabled = True
+        inAddMode = False
         EnableInput()
     End Sub
 
     Private Sub cmdSave_Click(sender As Object, e As EventArgs) Handles cmdSave.Click
-        insertQuery = "INSERT INTO tblEmployee VALUES ('" & txtFName.Text & "', '" & txtLName.Text & "', '" & txtAddress1.Text & "', '" & txtAddress2.Text & "', '" & lstCounties.Text & "', '" & dtDoB.Text & "', '" & dtDateStarted.Text & "', '" & cboDept.Text & "', '" & txtNotes.Text & "')"
-        MessageBox.Show(insertQuery)
-        Dim command As New SqlCommand(insertQuery, cnn)
-        command.ExecuteNonQuery()
-        dt.Clear()
-        Dim da As New SqlDataAdapter("SELECT * FROM tblEmployee", cnn)
-        da.Fill(dt)
-        iRecCount = dt.Rows.Count
-        iIndex = (iRecCount - 1)
+        If inAddMode Then
+            insertQuery = "INSERT INTO tblEmployee VALUES ('"
+            insertQuery &= txtFName.Text & "', '"
+            insertQuery &= txtLName.Text & "', '"
+            insertQuery &= txtAddress1.Text & "', '"
+            insertQuery &= txtAddress2.Text & "', '"
+            insertQuery &= lstCounties.Text & "', '"
+            insertQuery &= dtDoB.Text & "', '"
+            insertQuery &= dtDateStarted.Text & "', '"
+            insertQuery &= cboDept.Text & "', '"
+            insertQuery &= txtNotes.Text & "')"
+            MessageBox.Show(insertQuery)
+            Dim command As New SqlCommand(insertQuery, cnn)
+            command.ExecuteNonQuery()
+            dt.Clear()
+            Dim da As New SqlDataAdapter("SELECT * FROM tblEmployee", cnn)
+            da.Fill(dt)
+            iRecCount = dt.Rows.Count
+            lastID = dt.Rows(iRecCount - 1)("ID")
+            iIndex = (iRecCount - 1)
+        Else
+            updateQuery = "UPDATE tblEmployee SET "
+            updateQuery &= "FirstName = '" & txtFName.Text & "', "
+            updateQuery &= "LastName = '" & txtLName.Text & "', "
+            updateQuery &= "AddressLine1 = '" & txtAddress1.Text & "', "
+            updateQuery &= "AddressLine2 = '" & txtAddress2.Text & "', "
+            updateQuery &= "County = '" & lstCounties.Text & "', "
+            updateQuery &= "DoB = '" & dtDoB.Text & "', "
+            updateQuery &= "DateJoined = '" & dtDateStarted.Text & "', "
+            updateQuery &= "Dept = '" & cboDept.Text & "', "
+            updateQuery &= "Notes = '" & txtNotes.Text & "' "
+            updateQuery &= "WHERE ID = " & txtID.Text
+            MessageBox.Show(updateQuery)
+            Dim command As New SqlCommand(updateQuery, cnn)
+            command.ExecuteNonQuery()
+            dt.Clear()
+            Dim da As New SqlDataAdapter("SELECT * FROM tblEmployee", cnn)
+            da.Fill(dt)
+        End If
         DisplayRecord(iIndex)
         DisableInput()
         cmdFirst.Enabled = True
         cmdPrevious.Enabled = True
         cmdNext.Enabled = True
         cmdLast.Enabled = True
+        cmdCancel.Enabled = False
+    End Sub
+
+    Private Sub cmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
+        DisplayRecord(iIndex)
+        DisableInput()
+        cmdFirst.Enabled = True
+        cmdPrevious.Enabled = True
+        cmdNext.Enabled = True
+        cmdLast.Enabled = True
+        cmdCancel.Enabled = False
     End Sub
 End Class
