@@ -52,6 +52,13 @@ Partial Class frmMain
         Me.dtDoB = New System.Windows.Forms.DateTimePicker()
         Me.dtDateStarted = New System.Windows.Forms.DateTimePicker()
         Me.lstCounties = New System.Windows.Forms.ListBox()
+        Me.cmdFirst = New System.Windows.Forms.Button()
+        Me.cmdPrevious = New System.Windows.Forms.Button()
+        Me.cmdNext = New System.Windows.Forms.Button()
+        Me.cmdLast = New System.Windows.Forms.Button()
+        Me.cmdAdd = New System.Windows.Forms.Button()
+        Me.cmdEdit = New System.Windows.Forms.Button()
+        Me.cmdSave = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -126,6 +133,7 @@ Partial Class frmMain
         'cboDept
         '
         Me.cboDept.FormattingEnabled = True
+        Me.cboDept.Items.AddRange(New Object() {"VB", "CSharp", "Swift"})
         Me.cboDept.Location = New System.Drawing.Point(240, 432)
         Me.cboDept.Name = "cboDept"
         Me.cboDept.Size = New System.Drawing.Size(121, 21)
@@ -331,12 +339,82 @@ Partial Class frmMain
         Me.lstCounties.Size = New System.Drawing.Size(120, 95)
         Me.lstCounties.TabIndex = 28
         '
+        'cmdFirst
+        '
+        Me.cmdFirst.Location = New System.Drawing.Point(33, 585)
+        Me.cmdFirst.Name = "cmdFirst"
+        Me.cmdFirst.Size = New System.Drawing.Size(75, 23)
+        Me.cmdFirst.TabIndex = 2
+        Me.cmdFirst.Text = "<<"
+        Me.cmdFirst.UseVisualStyleBackColor = True
+        '
+        'cmdPrevious
+        '
+        Me.cmdPrevious.Location = New System.Drawing.Point(114, 585)
+        Me.cmdPrevious.Name = "cmdPrevious"
+        Me.cmdPrevious.Size = New System.Drawing.Size(75, 23)
+        Me.cmdPrevious.TabIndex = 3
+        Me.cmdPrevious.Text = "<"
+        Me.cmdPrevious.UseVisualStyleBackColor = True
+        '
+        'cmdNext
+        '
+        Me.cmdNext.Location = New System.Drawing.Point(195, 585)
+        Me.cmdNext.Name = "cmdNext"
+        Me.cmdNext.Size = New System.Drawing.Size(75, 23)
+        Me.cmdNext.TabIndex = 4
+        Me.cmdNext.Text = ">"
+        Me.cmdNext.UseVisualStyleBackColor = True
+        '
+        'cmdLast
+        '
+        Me.cmdLast.Location = New System.Drawing.Point(276, 585)
+        Me.cmdLast.Name = "cmdLast"
+        Me.cmdLast.Size = New System.Drawing.Size(75, 23)
+        Me.cmdLast.TabIndex = 5
+        Me.cmdLast.Text = ">>"
+        Me.cmdLast.UseVisualStyleBackColor = True
+        '
+        'cmdAdd
+        '
+        Me.cmdAdd.Location = New System.Drawing.Point(518, 64)
+        Me.cmdAdd.Name = "cmdAdd"
+        Me.cmdAdd.Size = New System.Drawing.Size(75, 23)
+        Me.cmdAdd.TabIndex = 6
+        Me.cmdAdd.Text = "Add"
+        Me.cmdAdd.UseVisualStyleBackColor = True
+        '
+        'cmdEdit
+        '
+        Me.cmdEdit.Location = New System.Drawing.Point(518, 109)
+        Me.cmdEdit.Name = "cmdEdit"
+        Me.cmdEdit.Size = New System.Drawing.Size(75, 23)
+        Me.cmdEdit.TabIndex = 7
+        Me.cmdEdit.Text = "Edit"
+        Me.cmdEdit.UseVisualStyleBackColor = True
+        '
+        'cmdSave
+        '
+        Me.cmdSave.Location = New System.Drawing.Point(518, 169)
+        Me.cmdSave.Name = "cmdSave"
+        Me.cmdSave.Size = New System.Drawing.Size(75, 23)
+        Me.cmdSave.TabIndex = 8
+        Me.cmdSave.Text = "Save"
+        Me.cmdSave.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(605, 614)
         Me.ControlBox = False
+        Me.Controls.Add(Me.cmdSave)
+        Me.Controls.Add(Me.cmdEdit)
+        Me.Controls.Add(Me.cmdAdd)
+        Me.Controls.Add(Me.cmdLast)
+        Me.Controls.Add(Me.cmdNext)
+        Me.Controls.Add(Me.cmdPrevious)
+        Me.Controls.Add(Me.cmdFirst)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.cmdExit)
         Me.Name = "frmMain"
@@ -377,5 +455,12 @@ Partial Class frmMain
     Friend WithEvents dtDateStarted As System.Windows.Forms.DateTimePicker
     Friend WithEvents dtDoB As System.Windows.Forms.DateTimePicker
     Friend WithEvents lstCounties As System.Windows.Forms.ListBox
+    Friend WithEvents cmdFirst As System.Windows.Forms.Button
+    Friend WithEvents cmdPrevious As System.Windows.Forms.Button
+    Friend WithEvents cmdNext As System.Windows.Forms.Button
+    Friend WithEvents cmdLast As System.Windows.Forms.Button
+    Friend WithEvents cmdAdd As System.Windows.Forms.Button
+    Friend WithEvents cmdEdit As System.Windows.Forms.Button
+    Friend WithEvents cmdSave As System.Windows.Forms.Button
 
 End Class
